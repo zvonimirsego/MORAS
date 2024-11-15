@@ -1,0 +1,54 @@
+CHIP RoundToPow
+{
+	IN in[16];
+	OUT out[16];
+	
+	PARTS:
+	And(a = in[15], b = true, out = out[15]);
+	Mux(a = true, b = false, sel = in[15], out = nsel1);
+	
+	And(a = in[14], b = nsel1, out = out[14]);
+	Mux(a = nsel1, b = false, sel = in[14], out = nsel2);
+	
+	And(a = in[13], b = nsel2, out = out[13]);
+	Mux(a = nsel2, b = false, sel = in[13], out = nsel3);
+	
+	And(a = in[12], b = nsel3, out = out[12]);
+	Mux(a = nsel3, b = false, sel = in[12], out = nsel4);
+	
+	And(a = in[11], b = nsel4, out = out[11]);
+	Mux(a = nsel4, b = false, sel = in[11], out = nsel5);
+	
+	And(a = in[10], b = nsel5, out = out[10]);
+	Mux(a = nsel5, b = false, sel = in[10], out = nsel6);
+	
+	And(a = in[9], b = nsel6, out = out[9]);
+	Mux(a = nsel6, b = false, sel = in[9], out = nsel7);
+	
+	And(a = in[8], b = nsel7, out = out[8]);
+	Mux(a = nsel7, b = false, sel = in[8], out = nsel8);
+	
+	And(a = in[7], b = nsel8, out = out[7]);
+	Mux(a = nsel8, b = false, sel = in[7], out = nsel9);
+	
+	And(a = in[6], b = nsel9, out = out[6]);
+	Mux(a = nsel9, b = false, sel = in[6], out = nsel10);
+	
+	And(a = in[5], b = nsel10, out = out[5]);
+	Mux(a = nsel10, b = false, sel = in[5], out = nsel11);
+	
+	And(a = in[4], b = nsel11, out = out[4]);
+	Mux(a = nsel11, b = false, sel = in[4], out = nsel12);
+	
+	And(a = in[3], b = nsel12, out = out[3]);
+	Mux(a = nsel12, b = false, sel = in[3], out = nsel13);
+	
+	And(a = in[2], b = nsel13, out = out[2]);
+	Mux(a = nsel13, b = false, sel = in[2], out = nsel14);
+	
+	And(a = in[1], b = nsel14, out = out[1]);
+	Mux(a = nsel14, b = false, sel = in[1], out = nsel15);
+	
+	And(a = in[0], b = nsel15, out = out[0]);
+	// Mux(a = nsel15, b = false, sel = in[0], out = nsel16);
+}
