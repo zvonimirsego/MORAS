@@ -3,7 +3,8 @@ CHIP zad1b
 {
 	IN x, y, z;
 	OUT out;
-	
+
+	PARTS:
 	Not(in = y, out = notY);
 	
 	And(a = x, b = notY, out = out1);
