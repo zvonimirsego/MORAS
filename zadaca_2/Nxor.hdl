@@ -1,0 +1,10 @@
+CHIP Nxor
+{
+//Not Xor chip, dosta jednostavno, ali pomaze mi u IsPalindrome
+	IN a, b;
+	OUT out;
+	
+	PARTS:
+	Xor(a = a, b = b, out = out1);
+	Not(in = out1, out = out);
+}
