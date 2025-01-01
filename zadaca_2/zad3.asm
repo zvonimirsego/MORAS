@@ -1,6 +1,9 @@
 @i
 M = 0;
 
+@5
+M = 0;
+
 (LOOP_START)
 	//petlja zavrsava kada je i - 4 > 0 tj. i > 4
 	@i
