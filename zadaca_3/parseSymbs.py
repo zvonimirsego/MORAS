@@ -35,6 +35,11 @@ def _parse_variables(self, line, p, o):
         return line
     
     l = line[1:]
+    if l[0] == '-' or int(l) > 32767:
+        self._flag = False
+        self._line = o
+        self._errm = "Address number out of bounds!"
+        return
     
     if l.isdigit():
         return line
