@@ -1,3 +1,5 @@
+Ovo je file u koji sam pisao ideje kako bi navedene makro naredbe trebale raditi
+
 $MV(A,B)
 @A
 D=M;
