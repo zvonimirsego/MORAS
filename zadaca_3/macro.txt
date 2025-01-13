@@ -1,3 +1,5 @@
+Ovo je txt file u koji sam pisao kako sam dosao do asemblerskog koda za danu makronaredbu
+
 $MV(A,B)
 @A
 D=M;
