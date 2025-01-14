@@ -130,4 +130,5 @@ class Parser:
 if __name__ == "__main__":
     Parser("zad3a")
     Parser("zad3b")
-    Parser("test")
+    #ostaviti zakomentirano, osim za testiranje zadatka 1
+    #Parser("test")
