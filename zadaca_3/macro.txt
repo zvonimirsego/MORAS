@@ -1,3 +1,5 @@
+Tu sam pisao ideje za makro naredbe, nista bitno ali evo i ovo predajem
+
 $MV(A,B)
 @A
 D=M;
