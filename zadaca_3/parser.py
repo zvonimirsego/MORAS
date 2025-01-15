@@ -44,7 +44,7 @@ class Parser:
         # parsiramo makro naredbe
         self._parse_macros()
         if self._flag == False:
-            Parser._error("PL", self._line, self._errm)
+            Parser._error("MACRO", self._line, self._errm)
             return
         
         # parsiramo simbole iz koda
