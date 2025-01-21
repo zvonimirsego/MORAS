@@ -1,0 +1,22 @@
+// push argumente funkcije
+push constant 2
+push constant 5
+
+// pozovi funkciju Sum.sum sa 2 argumenta
+call Sum.sum 2
+
+// rezultat funkcije spremi u RAM[16]
+pop static 0
+
+// beskonacna petlja na kraju
+label END
+goto END
+
+// imena funkcija sadrzavaju ime datoteke!!
+function Sum.sum 2
+    push local 0
+    push local 1
+    push argument 0
+    push argument 1
+    add
+    return
