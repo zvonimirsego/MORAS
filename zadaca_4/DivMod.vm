@@ -1,0 +1,40 @@
+push static 0
+push static 1
+call DivMod.divmod 2
+
+function DivMod.divmod 4
+push argument 0
+pop local 0
+push argument 1
+pop local 1
+push constant 0
+pop local 2
+push argument 0
+pop local 3
+
+label start
+push local 3
+push local 1
+lt
+if-goto end
+
+push local 2
+push constant 1
+add
+pop local 2
+
+push local 3
+push local 1
+sub
+pop local 3
+
+goto start
+
+label end
+push local 2
+pop static 2
+push local 3
+pop static 3
+
+push constant 0
+return
