@@ -1,0 +1,41 @@
+push static 0
+call Lucas.lucas 1
+pop static 0
+label END
+goto END
+
+function Lucas.lucas 4
+push argument 0
+pop local 0
+push constant 2
+pop local 1
+push constant 1
+pop local 2
+
+label start
+push constant 0
+push local 0
+eq
+if-goto end
+
+push local 1
+push local 2
+add
+pop local 3
+
+push local 2
+pop local 1
+push local 3
+pop local 2
+
+push local 0
+push constant 1
+sub
+pop local 0
+
+goto start
+
+
+label end
+push local 1
+return

@@ -1,0 +1,100 @@
+push static 0
+push static 1
+push static 2
+call BS.search 3
+pop static 3
+
+label END
+goto END
+
+function BS.search 4
+push constant 0
+pop local 0
+push argument 1
+push constant 1
+sub
+pop local 1
+
+label start1
+push local 0
+push local 1
+gt
+if-goto end1
+
+push local 0
+push local 1
+push local 0
+sub
+call BS.divtwo 1
+add
+pop local 2
+
+push argument 0
+push local 2
+add
+pop pointer 1
+push that 0
+push argument 2
+eq
+if-goto found
+
+push that 0
+push argument 2
+lt
+if-goto update_low
+
+push local 2
+push constant 1
+sub
+pop local 1
+
+goto start1
+
+label update_low
+push local 2
+push constant 1
+add
+pop local 0
+
+goto start1
+
+label found
+push local 2
+return
+
+label end1
+push constant 0
+push constant 1
+sub
+return
+
+function BS.divtwo 2
+push argument 0
+pop local 0
+
+label start
+push local 0
+push constant 0
+eq
+if-goto end
+
+push local 0
+push constant 0
+lt
+if-goto end
+
+push local 0
+push constant 2
+sub
+pop local 0
+
+push local 1
+push constant 1
+add
+pop local 1
+
+goto start
+
+label end
+push local 1
+return
