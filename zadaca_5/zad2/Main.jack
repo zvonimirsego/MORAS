@@ -1,0 +1,63 @@
+class Main 
+{
+    function void main() 
+	{
+        var Vint v1, v2;
+        var int i;
+        
+        let v1 = Vint.new(3);
+        let v2 = Vint.new(3);
+        
+        let i = 0;
+        while (i < v1.len()) 
+		{
+            do v1.set(i, 2 * i);
+			do v2.set(i, 2 * i);
+            let i = i + 1;
+        }
+        
+        let i = 0;
+        while (i < v1.len()) 
+		{
+            do Output.printInt(v1.get(i));
+            do Output.printString(" ");
+            let i = i + 1;
+        }
+        do Output.println();
+		
+		let i = 0;
+        while (i < v2.len()) 
+		{
+            do Output.printInt(v2.get(i));
+            do Output.printString(" ");
+            let i = i + 1;
+        }
+        do Output.println();
+        
+        if (Vint.is_eq(v1, v2)) 
+		{
+            do Output.printString("v1 i v2 su jednaki");
+			do Output.println();
+        }
+		else
+		{
+            do Output.printString("v1 i v2 nisu jednaki");
+			do Output.println();
+        }
+		
+		do v1.resize(4);
+        
+        if (Vint.is_eq(v1, v2)) 
+		{
+            do Output.printString("v1 i v2 su jednaki");
+			do Output.println();
+        }
+		else
+		{
+            do Output.printString("v1 i v2 nisu jednaki");
+			do Output.println();
+        }
+        
+        return;
+    }
+}

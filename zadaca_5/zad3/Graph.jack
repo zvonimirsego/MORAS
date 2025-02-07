@@ -1,0 +1,36 @@
+class Graph
+{
+	function int f(int x)
+	{
+		var int y;
+		let y = x*x;
+		return y;
+	}
+	
+	function void draw_lines()
+	{
+		do Screen.drawLine(0, 127, 255, 127);
+		do Screen.drawLine(127, 0, 127, 255);
+		return;
+	}
+	
+	function void draw()
+	{
+		var int x1, x2, y1, y2, i;
+		do Graph.draw_lines();
+		let i = -32;
+		while(i < 32)
+		{
+			let x1 = i;
+			let x2 = i + 1;
+			let y1 = Graph.f(x1);
+			let y2 = Graph.f(x2);
+			if(((y1 > -33) & (y1 < 33))&((y2 > -33) & (y2 < 33)))
+			{
+				do Screen.drawLine(4*x1+128, Math.min(255, -4*y1+128), 4*x2+128, Math.min(255, -4*y2+128));
+			}
+			let i = i + 1;
+		}
+		return;
+	}
+}

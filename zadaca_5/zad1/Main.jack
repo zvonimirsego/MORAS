@@ -1,0 +1,74 @@
+class Main
+{	
+	function Array qsort(Array A, int n)
+	{
+		var int ia, ib, i, pivot;
+		var Array lt, gt;
+		if(n < 2)
+		{ 
+			return A;
+		}
+		let ia = 0;
+		let ib = 0;
+		let lt = Array.new(n);
+		let gt = Array.new(n);
+		let i = 1;
+		let pivot = A[0];
+		while(i < n)
+		{
+			if(A[i] < pivot)
+			{
+				let lt[ia] = A[i];
+				let ia = ia + 1;
+			}
+			else 
+			{
+				let gt[ib] = A[i];
+				let ib = ib + 1;
+			}
+			let i = i + 1;
+		}
+		let lt = Main.qsort(lt, ia);
+		let gt = Main.qsort(gt, ib);
+		
+		let i = 0;
+		while(i < ia)
+		{
+			let A[i] = lt[i];
+			let i = i + 1;
+		}
+		let A[ia] = pivot;
+		let i = 0;
+		while(i < ib)
+		{
+			let A[ia+1+i] = gt[i];
+			let i = i + 1;
+		}
+		return A;
+	}
+	
+	function void main()
+	{
+		var Array A;
+		var int i;
+		let A = Array.new(5);
+		let A[0] = 7;
+		let A[1] = 10;
+		let A[2] = 4;
+		let A[3] = 3;
+		let A[4] = 1;
+		
+		do Main.qsort(A, 5);
+		
+		let i = 0;
+		while (i < 5)
+		{
+			do Output.printInt(A[i]);
+			do Output.println();
+			let i = i + 1;
+		}
+		
+		do A.dispose();
+		return;
+	}
+}

@@ -1,0 +1,96 @@
+class Vint
+{
+	field Array A;
+	field int length;
+	
+	method int len()
+	{
+		return length;
+	}
+	
+	constructor Vint new(int n)
+	{
+		var int l;
+		if (n < 0)
+		{
+			let l = 1;
+		}
+		else
+		{
+			let l = Power.calculate(2, n);
+		}
+		let length = l;
+		let A = Array.new(l);
+		return this;
+	}
+	
+	method void set(int k, int v)
+	{
+		if(k < length)
+		{
+			let A[k] = v;
+		}
+		return;
+	}
+	
+	method int get(int k)
+	{
+		if(k < length)
+		{
+			return A[k];
+		}
+		return -15000; //ako nije nasao taj element
+	}
+	
+	method void resize(int m)
+	{
+		var int l, n, old, i;
+		var Array B;
+		if(m < 0)
+		{
+			let l = 1;
+		}
+		else
+		{
+			let l = Power.calculate(2, m);
+		}
+		let n = Math.min(l, length);
+		let length = l;
+		let B = Array.new(length);
+		let i = 0;
+		while (i < n)
+		{
+			let B[i] = A[i];
+			let i = i + 1;
+		}
+		let A = B;
+		return;
+	}
+	
+	function boolean is_eq(Vint V, Vint W)
+	{
+		var int i, n;
+		if(V.len() = W.len())
+		{
+			let n = V.len();
+			let i = 0;
+			while(i < n)
+			{
+				if(~(V.get(i) = W.get(i)))
+				{
+					return false;
+				}
+				let i = i + 1;
+			}
+			return true;
+		}
+		return false;
+	}
+	
+	function boolean elems(Vint V, Vint W)
+	{
+		do Power.qsort(V, V.len());
+		do Power.qsort(W, W.len());
+		return Vint.is_eq(V, W);
+	}
+}
